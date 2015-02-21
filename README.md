@@ -2,6 +2,8 @@
 
 html5-video-splitter is an utility to split videos in javascript.
 
+![image](screenshot.jpg)
+
 ## Supported formats
 
 It supports all videos format available for the ``` <video> ``` tag : mp4, webm and ogg
