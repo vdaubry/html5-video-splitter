@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>HTML5 local video file splitter</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="slider.js"></script>
+    <script src="video-player.js"></script>
+    <script src="webservice.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  </head>
+  <body>
+    <div class="container col-centered">
+      <h1 class="text-center">HTML5 video splitter</h1>
+      <div class="row">
+        <div class="upload-drop-zone" id="drop-zone">
+          Drag and drop video file here
+        </div>
+        <div>
+          <input type="file" accept="video/*">
+        </div>
+      </div>
+      
+      <div class="row">
+        <video id="video-active" controls="" autoplay=""></video>
+      </div>
+      <br>
+      <div class="row">
+        <p>
+          <label for="amount">Selected video range:</label>
+          <input type="text" id="selected-video-time" readonly style="border:0; color:#f6931f; font-weight:bold;">
+        </p>
+        <div id="slider-range"></div>
+      </div>
+      <br>
+      <div class="row">
+        <button type="button" class="btn btn-success split" id="target">Split</button>
+        <div id="segments">
+          
+        </div>
+      </div>
+      <input type="text" id="fileName" hidden></input>
+    </div>
+  </body>
+</html>
