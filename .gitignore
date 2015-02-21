@@ -30,3 +30,6 @@ node_modules
 .DS_Store
 *.mp4
 *.flv
+*.3gp
+*.webm
+*.ogv

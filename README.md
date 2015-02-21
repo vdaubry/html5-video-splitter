@@ -1,6 +1,6 @@
 # html5-video-splitter
 
-html5-video-splitter is an utility to split videos in javascript.
+html5-video-splitter is a javascript app to split videos in your borwser.
 
 ## Supported formats
 
@@ -12,7 +12,7 @@ For more informations see http://www.w3schools.com/html/html5_video.asp
 
 Start the node.js server :
 
-``` node back/ffmpeg_runner.js ```
+``` node video-splitter.js ```
 
 It opens a web page where you can select a video :
 

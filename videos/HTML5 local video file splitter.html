@@ -1,0 +1,54 @@
+
+<!-- saved from url=(0022)http://127.0.0.1:1337/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>HTML5 local video file splitter</title>
+    <script src="./HTML5 local video file splitter_files/jquery-2.1.3.min.js"></script><style type="text/css"></style>
+    <script src="./HTML5 local video file splitter_files/jquery-ui.js"></script>
+    <script src="./HTML5 local video file splitter_files/slider.js"></script>
+    <script src="./HTML5 local video file splitter_files/video-player.js"></script>
+    <script src="./HTML5 local video file splitter_files/webservice.js"></script>
+    <link rel="stylesheet" href="http://127.0.0.1:1337/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  </head>
+  <body style="zoom: 1;">
+    <div class="container">
+      <h1 class="text-center">HTML5 video splitter</h1>
+      <div class="row">
+        <div class="upload-drop-zone" id="drop-zone">
+          Drag and drop video file here
+        </div>
+        <div>
+          <input type="file" accept="video/*">
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12" style="
+    align-content: center;
+">
+          <video class="center" id="video-active" controls="" autoplay="" style="
+    align: center;
+"></video>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <p>
+          <label for="amount">Selected video range:</label>
+          <input type="text" id="selected-video-time" readonly="" style="border:0; color:#f6931f; font-weight:bold;">
+        </p>
+        <div id="slider-range"></div>
+      </div>
+      <br>
+      <div class="row">
+        <button type="button" class="btn btn-success split" id="target">Split</button>
+        <div id="segments">
+          
+        </div>
+      </div>
+      <input type="text" id="fileName" hidden="">
+    </div>
+  
+<span id="buffer-extension-hover-button" style="display: none;position: absolute;z-index: 8675309;width: 100px;height: 25px;background-image: url(chrome-extension://noojglkidnpfjbincgijbaiedldjfbhh/data/shared/img/buffer-hover-icon@2x.png);background-size: 100px 25px;opacity: 0.9;cursor: pointer;"></span></body></html>

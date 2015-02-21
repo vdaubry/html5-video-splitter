@@ -20,3 +20,9 @@ button.split {
   margin-bottom: 50px;
   margin-top: 30px;
 }
+
+.center {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+}

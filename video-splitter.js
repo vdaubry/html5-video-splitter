@@ -25,8 +25,8 @@ http.createServer(function (req, res) {
     req.on('end', function () {
         var data = JSON.parse(body);
         var localPath = __dirname;
-        var inputFilePath = localPath+"/../videos/"+data.inputFilePath;
-        var outputFilePath = localPath+"/../videos/output-"+data.inputFilePath
+        var inputFilePath = localPath+"/videos/"+data.inputFilePath;
+        var outputFilePath = localPath+"/videos/output-"+data.inputFilePath
         var start = data.begin;
         var end = data.end;
         
@@ -59,14 +59,14 @@ http.createServer(function (req, res) {
       ".png": "image/png",
       ".ico": "image/x-icon"
     };
-    var isValidExt = validExtensions[ext];
+    var mimeType = validExtensions[ext];
    
-    if (isValidExt) {
-      localPath += "/../front/"+filename;
+    if (mimeType) {
+      localPath += "/interface/"+filename;
       fs.exists(localPath, function(exists) {
         if(exists) {
           console.log("Serving file: " + localPath);
-          getFile(localPath, res, ext);
+          getFile(localPath, res, mimeType);
         } else {
           console.log("File not found: " + localPath);
           res.writeHead(404);

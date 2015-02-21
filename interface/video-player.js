@@ -1,22 +1,5 @@
 $(document).ready(function(){
-    var dropZone = $("#drop-zone")[0];
-    
-    dropZone.ondrop = function(event) {
-      event.preventDefault();
-      this.className = 'upload-drop-zone';
-      playSelectedFileInit(event.dataTransfer.files[0]);
-    }
-    
-    dropZone.ondragover = function() {
-        this.className = 'upload-drop-zone drop';
-        return false;
-    }
-
-    dropZone.ondragleave = function() {
-        this.className = 'upload-drop-zone';
-        return false;
-    }
-  
+  setupDropZone();
   
   var URL = window.URL || window.webkitURL;
   var inputNode = document.querySelector('input');
@@ -26,9 +9,12 @@ $(document).ready(function(){
   $("#video-active").on(
     "loadedmetadata", 
     function(event){
+      $("#slider").removeClass('hide');
+      $(":button").removeClass('hide');
       displaySlider(this.duration);
   });
 });
+
 
 function playSelectedFileInit(file) {
   $("#fileName").val(file.name);
@@ -49,4 +35,25 @@ function playSelectedFileInit(file) {
 
   var fileURL = URL.createObjectURL(file);
   videoNode.src = fileURL;
+}
+
+
+function setupDropZone() {
+  var dropZone = $("#drop-zone")[0];
+  
+  dropZone.ondrop = function(event) {
+    event.preventDefault();
+    this.className = 'upload-drop-zone';
+    playSelectedFileInit(event.dataTransfer.files[0]);
+  }
+  
+  dropZone.ondragover = function() {
+      this.className = 'upload-drop-zone drop';
+      return false;
+  }
+
+  dropZone.ondragleave = function() {
+      this.className = 'upload-drop-zone';
+      return false;
+  }
 }
