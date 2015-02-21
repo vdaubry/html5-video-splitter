@@ -1,12 +1,21 @@
 # html5-video-splitter
 
-html5-video-splitter is a javascript app to split videos in your borwser.
+html5-video-splitter is an utility to split videos in javascript :
+- A web interface to play the video and select the range to extract
+- A Node server to call [FFmpeg](https://www.ffmpeg.org/)
 
-## Supported formats
+![image](screenshot.jpg)
+
+## Supported formats :
 
 It supports all videos format available for the ``` <video> ``` tag : mp4, webm and ogg
 
 For more informations see http://www.w3schools.com/html/html5_video.asp
+
+## Requirements :
+
+[FFmpeg](https://www.ffmpeg.org/) must be installed. To ensure it is available, on your command line, run `which ffmpeg`.
+This will give you the path where ffmpeg is installed. For example, it might return `/usr/local/bin/ffmpeg`.
 
 ## How tu use :
 
@@ -17,10 +26,10 @@ Start the node.js server :
 It opens a web page where you can select a video :
 
 1. __Important : Put the videos you want to split in the ``` videos ``` folder__ (see notes)
-2. Drag a video or choose a file (from the ``` videos ``` folder)
+2. Drag a video or choose a file from the ``` videos ``` folder
 2. Select the range in second to split
 3. Click on the split button
-4. The split video can be found in the ``` videos ``` folder
+4. The ouput can be found in the ``` videos ``` folder
 
 ## Notes :
 
