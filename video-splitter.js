@@ -4,6 +4,7 @@ spawn('open', ['http://127.0.0.1:1337/']);
 var http = require('http');
 var path = require("path"); 
 var fs = require("fs"); 
+var exec = require('child_process').exec;
 
 http.createServer(function (req, res) {
   if (req.method === 'OPTIONS') {
@@ -31,13 +32,18 @@ http.createServer(function (req, res) {
         var end = data.end;
         
         var command = "ffmpeg -y -ss "+start+" -t "+(end-start)+" -i "+inputFilePath+" -vcodec copy -acodec copy "+outputFilePath;
-        var exec = require('child_process').exec;
         exec(command, function(error, stdout, stderr) {
-          console.log(stdout);
-          console.log(stderr);
-          console.log(stderr);
-          res.writeHead(200, {'Content-Type': 'text/plain'});
-          res.end();
+          var msg = ""
+          if(error) {
+            console.log(error);
+            msg = error.toString();
+            res.writeHead(500, {'Content-Type': 'text/plain'});
+          }
+          else {
+            console.log(stdout);
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+          }
+          res.end(msg);
         });
     });
   }

@@ -1,11 +1,5 @@
 $(document).ready(function(){
-  var segments = []
   $("#target").click(function() {
-    // var last_segment = segments[segments.length - 1];
-    // var last_time = last_segment.end
-    // //var new_segment = {start: , end: }
-    
-    // $("#segments").append('<div class="module_holder"><p>Start :'+0+'</p><p>End : '+$("#current_time").text()+'</p></div>');
     var start = $("#slider-range").slider("values", 0);
     var end = $("#slider-range").slider("values", 1);
     
@@ -20,7 +14,16 @@ $(document).ready(function(){
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: function(r) {
-        
+        $("#result-message").removeClass('alert-danger');
+        $("#result-message").addClass('alert-success');
+        $("#result-message").html("<strong>Done!</strong> The video has been splitted, look in the 'videos' folder.");
+        $("#result-message").show();
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        $("#result-message").removeClass('alert-success');
+        $("#result-message").addClass('alert-danger');
+        $("#result-message").html("<strong>Error!</strong> "+xhr.responseText);
+        $("#result-message").show();
       }
     });
   });

@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  $("#slider").hide();
+  $(":button").hide();
+  $("#format-alert").hide();
+  $("#result-message").hide();
   setupDropZone();
   
   var URL = window.URL || window.webkitURL;
@@ -9,14 +13,15 @@ $(document).ready(function(){
   $("#video-active").on(
     "loadedmetadata", 
     function(event){
-      $("#slider").removeClass('hide');
-      $(":button").removeClass('hide');
+      $("#slider").show();
+      $(":button").show();
       displaySlider(this.duration);
   });
 });
 
 
 function playSelectedFileInit(file) {
+  $("#result-message").hide();
   $("#fileName").val(file.name);
   var type = file.type;
   var videoNode = document.querySelector('video');
@@ -25,12 +30,13 @@ function playSelectedFileInit(file) {
   var message = 'Can play type "' + type + '": ' + canPlay;
   var isError = canPlay === 'no';
 
-
-  //todo
-  //gestion des erreurs (format .mov par exemple)
-
+  var alert = $("#format-alert");
   if (isError) {
-      return;
+    alert.show();
+    return;
+  }
+  else {
+    alert.hide()
   }
 
   var fileURL = URL.createObjectURL(file);
