@@ -17,6 +17,11 @@ For more informations see http://www.w3schools.com/html/html5_video.asp
 [FFmpeg](https://www.ffmpeg.org/) must be installed. To ensure it is available, on your command line, run `which ffmpeg`.
 This will give you the path where ffmpeg is installed. For example, it might return `/usr/local/bin/ffmpeg`.
 
+Install FFmpeg on OS X : ``` brew install ffmpeg ``` 
+
+Install FFmpeg on Linux : ``` apt-get install ffmpeg ffmpeg ``` 
+
+
 ## How tu use :
 
 Start the node.js server :
